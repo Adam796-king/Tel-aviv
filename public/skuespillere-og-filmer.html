@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Skuespillere og filmer</title>
+</head>
+<body>
+
+<h1>Skuespillere og filmer</h1>
+
+<ul id="liste"></ul>
+
+<script>
+fetch("/skuespillere-og-filmer-json")
+.then(res => res.json())
+.then(data => {
+  const liste = document.getElementById("liste");
+  data.forEach(row => {
+    const li = document.createElement("li");
+    li.textContent = `${row.skuespiller} - ${row.film}`;
+    liste.appendChild(li);
+  });
+});
+</script>
+
+</body>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Deltagere</title>
+</head>
+<body>
+
+<h1>Deltagere</h1>
+
+<ul id="liste"></ul>
+
+<script>
+fetch("/deltagere-2-json")
+.then(res => res.json())
+.then(data => {
+  const liste = document.getElementById("liste");
+  data.forEach(person => {
+    const li = document.createElement("li");
+    li.textContent = person.navn;
+    liste.appendChild(li);
+  });
+});
+</script>
+
+</body>
+</html>
